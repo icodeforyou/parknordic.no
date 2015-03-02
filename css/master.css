@@ -1,0 +1,243 @@
+html,
+body {
+    height: 100%;
+}
+body {
+	font-family: Arial;
+	font-size: 13px;
+	line-height: 1.3em;
+	color: #333;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 300; 
+	margin-bottom: 20px;
+}
+h1, h2, h3 {
+	font-size: 34px;
+	line-height: 23px;
+}
+.error {
+	color: red
+}
+/*
+[class*="span"] {
+  float: left;
+  min-height: 1px;
+  margin-left: 10px !important;
+}
+*/
+#wrapper {
+	min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -79px;
+}
+#content-wrapper {
+	min-height: 530px;
+}
+#push,
+#footer {
+    height: 79px;
+}
+#footer {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 300; 
+	font-size:11px;
+	color: #656565;
+	background: #262725 url(/img/footer-bakg.png) repeat-x;
+}
+#footer p {
+	padding: 10px 0;
+}
+#footer strong {
+	color: #a7a7a7;
+}
+#top-wrapper {
+	background: url(/img/header_bg.png) repeat-x;
+	height: 352px;
+}
+#top {
+	height: 50px;
+	margin-top: 15px;
+}
+	#right-top-frame {
+		margin-left: 5px;
+		padding: 10px;
+		height: 120px;
+		width: 265px;
+		background: url(/img/right-top-bkg.png) no-repeat;
+		
+	}
+	#right-top-frame p,
+	#right-bottom-frame p {
+		line-height: 14px;
+	}
+	#right-top-frame p a,
+	#right-bottom-frame p a  {
+		font-weight: 800;
+		text-decoration: underline;
+	}
+	#right-top-frame p a:hover,
+	#right-bottom-frame p a:hover {
+		color: #fff;
+	}
+	#right-top-frame ul {
+		overflow: scroll;
+		max-height: 80px;
+	}
+	#right-bottom-frame {
+		margin-left: 5px;
+		padding: 10px;
+		height: 120px;
+		width: 265px;
+		background: url(/img/right-bottom-bkg.png) no-repeat;
+	}
+	#right-top-frame h4 {
+		color: #000;
+		font-size: 20px;
+	}
+	#right-top-frame h4,
+	#right-top-frame h4 a {
+		color: #000;
+		font-size: 20px;
+	}
+	#right-bottom-frame h4,
+	#right-bottom-frame h4 a {
+		color: #fff;
+		font-size: 20px;
+	}
+	#right-top-frame h4, #right-bottom-frame h4 {
+		margin: 2px 0;
+		font-weight: 800;
+	}
+
+#main-content {
+	padding-top: 20px;
+}
+
+#logo {
+	margin-left:0;
+	padding-top: 5px;
+}
+#lots ul,
+#lots p {
+	padding: 0 10px;
+}
+
+#lots {
+	color: #aaa;
+}
+#lots li:first-child {
+	border-top: 1px dotted;
+}
+#lots li {
+	border-bottom: 1px dotted;
+	padding: 5px 0;
+}
+#top .nav {
+	margin-top: 10px;
+	margin-right: 20px;
+}
+#top .nav li {
+	float:left;
+	margin-right: 5px;
+	/*min-width: 100px;*/
+	text-align:center;
+	margin: 0 10px;
+}
+#top .nav li a {
+	height: 25px;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 700; 
+	text-shadow:none !important;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+#top .nav li a:hover {
+	/*background: url(/img/nav-bakg.png) no-repeat bottom;*/
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	color: #111111;
+	background: none;
+}
+.tilbuds-box {
+	padding: 5px;
+	background-color: #e0f8ff;
+	border: 1px solid #99dff9;
+	min-height: 200px;
+}
+
+/** ADMIN  **/
+#lot-admin-table tbody tr {
+	cursor: pointer;
+}
+/*
+.btn-file {
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.btn-file > input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  cursor: pointer;
+  border: solid transparent;
+  border-width: 0 0 100px 200px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -moz-transform: translate(-300px, 0) scale(4);
+  direction: ltr;
+}
+
+.fileupload {
+  margin-bottom: 9px;
+}
+
+.fileupload .uneditable-input {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+  cursor: text;
+}
+
+.fileupload .thumbnail {
+  display: inline-block;
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.fileupload .thumbnail > img {
+  display: inline-block;
+  max-height: 100%;
+  vertical-align: middle;
+}
+
+.fileupload .btn {
+  vertical-align: middle;
+}
+
+.fileupload-exists .fileupload-new,
+.fileupload-new .fileupload-exists {
+  display: none;
+}
+
+.fileupload-inline .fileupload-controls {
+  display: inline;
+}
+
+.fileupload-new .input-append .btn-file {
+  -webkit-border-radius: 0 3px 3px 0;
+     -moz-border-radius: 0 3px 3px 0;
+          border-radius: 0 3px 3px 0;
+}
+*/
+.prettyFile > input { display: none !important; }
+/*  The rest is from Twitter Bootstrap */
+input, .input-append { display: inline-block; vertica-align: middle; }
+ 
