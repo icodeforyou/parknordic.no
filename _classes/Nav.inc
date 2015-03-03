@@ -14,6 +14,12 @@ class Nav
 	public $fileroot = '';
 	public $include = '';
 
+	public $staticMenuItems = array(
+		"Bestille plass" => "http://parknordic-permit.mspace.giantleap.no/user.html#/login",
+		"Agent" => "http://parknordic-permit.mspace.giantleap.no/agent.html#/login",
+		//"Shop" => "http://parknordic-permit.mspace.giantleap.no/embedded-user-shop.html#/shop"
+	);
+
 	public 	$menu = '',
 			$pages = array(),
 			$bread_construct = array();
@@ -22,11 +28,6 @@ class Nav
 			$db,
 			$log;
 
-	public $staticPages = array(
-		"http://parknordic-permit.mspace.giantleap.no/embedded-user-shop.html#/shop" => "Bestill plass",
-		"https://parknordic-permit.giantleap.no/user.html#/login" => "Hvor er vi",
-		"https://parknordic-permit.giantleap.no/agent.html#/login" => "Agent"
-	);
 
 
 	function __construct()
@@ -236,7 +237,7 @@ class Nav
 	{
 		
 		// Dont include this pages in the menu
-		$filter = array('.svn', '.', '..','.DS_Store','cnt_404.php','cnt_login.php', 'cnt_error.php', 'cnt_logout.php', 'cnt_home.php', 'cnt_kredinor.php', 'cnt_admin.php', 'cnt_bestill-plass.php', 'cnt_hvor-er-vi.php');
+		$filter = array('.svn', '.', '..','.DS_Store','cnt_404.php','cnt_login.php', 'cnt_error.php', 'cnt_logout.php', 'cnt_home.php', 'cnt_kredinor.php', 'cnt_admin.php', 'cnt_bestille-plass.php', 'cnt_hvor-er-vi.php');
 		$file_pages = array_values(array_diff(scandir($this->getFileroot() ."_content/"), $filter));
 		
 		foreach ($file_pages as $page) {
@@ -286,8 +287,6 @@ class Nav
 	public function getMenu()
 	{
 		
-		$this->pages = array_merge($this->pages, $this->staticPages);
-
 		uasort($this->pages,array($this,"cmp"));	
 
 		$this->menu = "<ul class=\"nav pull-right\">\n";
@@ -336,6 +335,14 @@ class Nav
 			$this->menu .= strlen($submenu)>0 ? $submenu : '';
 
 			$this->menu .= "</li>";
+		}
+
+		if(isset($this->staticMenuItems) && count($this->staticMenuItems)>0) {
+			foreach ($this->staticMenuItems as $smenu_label => $smenu_url) {
+				$this->menu .= "<li>";
+				$this->menu .= "<a href=\"{$smenu_url}\">{$smenu_label}</a>";
+				$this->menu .= "</li>";
+			}
 		}
 		$this->menu .= "\n</ul>";
 

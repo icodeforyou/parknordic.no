@@ -6,6 +6,7 @@ DEFINE("DB_USER_PASS", "webbuser");
 
 DEFINE("CONTACT_RECIEVER", "office@parknordic.no");
 DEFINE("ORDER_RECIEVER", "utleie@parknordic.no");
+
 DEFINE("INCLUDEPATH",realpath($_SERVER["DOCUMENT_ROOT"]) ."/");
 
 ?>

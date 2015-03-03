@@ -544,7 +544,6 @@ $(document).ready(function () {
 
 		var lotid = $(this).data("lotid");
 
-		
 		$.ajax({
 			url: '/ajax/ajax_pn.php',
 			type: 'post',
@@ -640,6 +639,14 @@ $(document).ready(function () {
 			
 	});
 
+	
+	$(".confirm-removal").click(function() {
+		if(confirm("Er du sikker på at du vil fjerne denna?")) {
+			return true;
+		} else {
+			return false;
+		}
+	});
 
 	$(".create-new-lot").click(function(e) {
 

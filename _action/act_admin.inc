@@ -31,6 +31,14 @@ if(strlen($filter->RF("-action"))>0 && $filter->RF("-action") == "save-news") {
 
 }
 
+if(isset($_GET['remove'])) {
+
+	$db->update("UPDATE Parking_Lots SET Removed = 1 WHERE ID = :ID", array(":ID" => $filter->RQ("remove")));
+	header("Location: /admin/");
+	die;
+
+}
+
 
 if(strlen($filter->RF("-action"))>0 && $filter->RF("-action") == "edit-news") {
 
@@ -52,6 +60,18 @@ if(strlen($filter->RF("-action"))>0 && $filter->RF("-action") == "edit-news") {
 
 }
 
+
+if(strlen($filter->RF("-action"))>0 && $filter->RF("-action") == "upload-new-banner") {
+
+	//$url = $filter->RF("banner-url");
+
+	$tmp_name = $_FILES["banner-file"]["tmp_name"];
+
+	if(move_uploaded_file($tmp_name, INCLUDEPATH . "/img/banner_front_park_tilbud.jpg") === true) {
+		header("Location: /admin/#banner");
+		die;
+	}
+}
 
 if(strlen($filter->RF("-action"))>0 && $filter->RF("-action") == "save-new-kredinor") {
 	

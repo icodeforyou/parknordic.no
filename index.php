@@ -1,6 +1,6 @@
 <?php 
 mb_internal_encoding("UTF-8");
-error_reporting(E_ALL ^ E_NOTICE);
+error_reporting(E_ALL & ~E_DEPRECATED ^ E_NOTICE);
 date_default_timezone_set("Europe/Oslo");
 
 include('_config/cfg__global.inc');
@@ -124,10 +124,10 @@ $news = $PN->getNews();
         <div class="container">
           <div id="top" class="span12">
             <div class="row">
-              <div class="span3" id="logo">
+              <div class="span2" id="logo">
                 <a href="/"><img src="/img/park-nordic-logo.png" border="0"></a>
               </div>
-              <div class="span9 pull-right">
+              <div class="span10 pull-right">
                 <?php echo $nav->getMenu(); ?>
               </div> 
             </div>
@@ -176,7 +176,38 @@ $news = $PN->getNews();
       </div>
       
     </div>
-    
+	<script>
+		$(function(){
+
+
+
+			var options = {
+				// map: "#map-preview",
+				// location : [60.46805, 8.459473],
+				country: 'no',
+				details: "#address-search",
+				types: ["geocode", "establishment"],
+				// mapOptions: {
+				//   zoom: 6
+				// },
+				// markerOptions: {
+				//   draggable: true
+				// },
+			};
+
+			var map2 = $("#q")
+				.geocomplete(options)
+				.bind("geocode:result", function(event, result){
+
+				});
+
+			<?php if(isset($_POST['q']) && strlen($_POST['q'])>0) { ?>
+				$("#q").trigger("geocode");
+			<?php } ?>
+
+
+		});
+	</script>
     <script src="/js/bootstrap.min.js"></script>
   </body>
 </html>

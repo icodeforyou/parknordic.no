@@ -10,6 +10,26 @@ if($nav->getArgs(0) !== false) {
 	}
 
 } else {
-	$lots = $PN->getCityLots();
+
+	if(strlen($filter->RF("q"))>0) {
+
+		try {
+			$lots = $PN->getZipLots($filter->RF("lat"), $filter->RF("lng"));
+
+				$geopos = new stdClass();
+				$geopos->Lat = $filter->RF("lat");
+				$geopos->Lng = $filter->RF("lng");
+				$placemarker = true;
+
+
+		} catch (Exception $e) {
+			$error = $e->getMessage();
+		}
+
+
+	} else {
+		$lots = $PN->getCityLots();
+	}
+
 }
 ?>

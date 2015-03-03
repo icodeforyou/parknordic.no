@@ -4,7 +4,7 @@
   	<h1>Har du mottatt kontrollavgift?</h1>
     <strong>Skriftlig klage sendes til:</strong>
     <p>
-		Klage kan sendes til Kredinor avd. Parkering Industriveien 7, 6517 Kristiansund eller på vår <a href="http://services.netpark.no/complaintregKredinor/ParkNordicKlage.aspx">klageweb</a>
+		Klage kan sendes til Kredinor avd. Parkering Industriveien 7, 6517 Kristiansund eller på vår <a href="/klageweb/">klageweb</a>
 	</p>
 	<p>
 		Dersom De støtter Deres klageårsak på dokumentasjon, f.eks. parkeringsbevis, kvittering eller annet, ber vi om at dette oversendes som vedlegg til klage. Hvis vedlegg er uteglemt må dette ettersendes pr post, da klage kun kan registreres en gang på web.

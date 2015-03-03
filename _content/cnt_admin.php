@@ -13,6 +13,9 @@
           <li>
             <a href="#news" data-toggle="tab">Lag Nyheter</a>
           </li>
+					<li>
+						<a href="#banner" data-toggle="tab">Banner</a>
+					</li>
         </ul>
         <div class="tab-content">
 
@@ -113,14 +116,18 @@
                   <th>City</th>
                   <th>Addresse</th>
                   <th>Beskrivning</th>
+                  <th>Fjern</th>
                 </tr>
               </thead>
               <tbody>
                 <?php foreach ($PN->getCityLots() as $lot) { ?>
-                  <tr class="admin-city-lot" data-lotid="<?php echo $lot->ID; ?>">
-                    <td><?php echo $lot->Name; ?></td>
+                  <tr>
+                    <td><a href="#" class="admin-city-lot" data-lotid="<?php echo $lot->ID; ?>"><?php echo $lot->Name; ?></a></td>
                     <td><?php echo $lot->Address; ?></td>
                     <td><?php echo $lot->Description; ?></td>
+                    <td>
+                      <a href="?remove=<?php echo $lot->ID; ?>" class="btn btn-small btn-warning confirm-removal">Fjern</a>
+                    </td>
                   </tr>
                 <?php } ?>
               </tbody>
@@ -351,6 +358,42 @@
               </tbody>
             </table>
           </div>
+
+					<div class="tab-pane" id="banner">
+
+						<h2>Laste up ny Banner</h2>
+						<p>Her kan du laste opp nytt banner til hjemmesiden</p>
+						<div class="controls">
+							<form action="<?php echo $nav->getPath(); ?>" enctype="multipart/form-data" method="post" style="margin: 0px; ">
+
+								<div class="row">
+									<div class="span8">
+										<img src="/img/banner_front_park_tilbud.jpg" alt=""/>
+									</div>
+								</div>
+								<div class="row">
+									<div class="span4">
+										<label for="banner-file">Velg fil</label>
+										<input id="banner-file" type="file" name="banner-file" class="span4 required">
+									</div>
+									<!--
+									<div class="span4">
+										<label for="banner-url">Link til bilde</label>
+										<input id="banner-file" type="text" name="banner-url" class="span4 required">
+									</div>
+									-->
+								</div>
+
+								<div class="row">
+									<div class="span8">
+										<button type="submit" class="btn btn-primary">Upload</button>
+									</div>
+								</div>
+
+								<input type="hidden" name="-action" value="upload-new-banner">
+							</form>
+
+					</div>
         </div>
 
       </div>

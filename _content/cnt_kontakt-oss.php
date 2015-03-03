@@ -4,7 +4,7 @@
     <h1>Kontakt oss</h1>
     <form id="contact" action="<?php echo $nav->getPath(); ?>" method="post">
         <p>
-          <strong>Ønsker du å klage på en kontrollavgift, trykk <a href="http://services.netpark.no/complaintregKredinor/ParkNordicKlage.aspx">her</a></strong>
+          <strong>Ønsker du å klage på en kontrollavgift, trykk <a href="/klageweb/">her</a></strong>
         </p>        
 
         <div class="row">

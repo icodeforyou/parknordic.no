@@ -8,7 +8,7 @@
       </div>
     <?php } ?>
     <div id="map_canvas" style="width:600px;height:400px"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+  <!--  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script> -->
     <!-- AIzaSyCnxx8GSwo9wTevNlsWOM2mvlTkXMc3I38 -->
       <script>
         function initialize() {
@@ -20,6 +20,26 @@
           var map = new google.maps.Map(document.getElementById('map_canvas'),mapOptions);
          // https://www.google.com/maps?q=norway&hl=sv&ll=59.189999,8.31665&spn=2.923742,7.218018&sll=37.0625,-95.677068&sspn=70.352627,115.488281&t=h&hnear=Norge&z=8
           setMarkers(map, lots);
+
+					<?php if(isset($placemarker) && $placemarker === true && isset($geopos)) { ?>
+					//setMarkers(map, [["Adressen du søker etter, er her", <?php echo $geopos->Lat; ?>, <?php echo $geopos->Lng; ?>, 0]]);
+						var mySearchLatLng = new google.maps.LatLng(<?php echo $geopos->Lat; ?>, <?php echo $geopos->Lng; ?>);
+						var marker = new google.maps.Marker({
+							position: mySearchLatLng,
+							map: map,
+					//		icon: image,
+							title : "Adressen du søker etter, er her"
+						});
+
+						var searchinfowindow = new google.maps.InfoWindow({
+							maxWidth : 300
+						});
+						searchinfowindow.setContent("Adressen du søker etter, er her");
+						searchinfowindow.open(map, marker);
+
+
+
+					<?php } ?>
         }
 
        /**
@@ -123,10 +143,11 @@
           }
         }
 
-      
+
       </script>
   </div>
   <div id="lots" class="span4">
     <?php $PN->getCities(); ?>
+
   </div>
 </div>

@@ -172,13 +172,15 @@ class ParkNordic
 		if(strlen($cityslug)>0) {
 			return $this->db->fetch_all("SELECT pl.* FROM `Parking_Lots` pl
 									INNER JOIN `Parking_Cities` pc ON pc.`CityID` = pl.`CityID`
-									WHERE pc.`Slug` = :Slug", array(":Slug" => $cityslug));
+									WHERE pc.`Slug` = :Slug
+									AND pl.Removed = 0", array(":Slug" => $cityslug));
 		} else {
 
 			$this->db->setLimit(100);
 
 			return $this->db->fetch_all("SELECT pl.*, pc.`Name` FROM `Parking_Lots` pl
 									INNER JOIN `Parking_Cities` pc ON pc.`CityID` = pl.`CityID`
+									WHERE pl.Removed = 0
 									ORDER BY pc.`Name` ASC", array());
 		}
 		
@@ -222,12 +224,17 @@ class ParkNordic
 
 		$this->db->setLimit(100);
 
-		$markup = '<p>Her kan du bestille, betale, endre kjøretøy og avslutte leieforholdet. Du trenger ikke lenger å tenke på parkeringsbevis! Klikk deg inn via banneren over eller i toppmenyen og logg på og registrer deg, finn stedet du ønsker å leie og fyll inn ønsket informasjon. Så kan du starte å parkere.<br />Har du spørsmål, ring oss på tlf. 21 42 20 00 eller e-post til <a href="mailto:utleie@parknordic.no">utleie@parknordic.no</a></p>';
+		$markup = '<p>Her finner du oversikten over hvilke steder du kan leie langtidsparkering hos Park Nordic AS. Spørsmål til korttidsparkering og områder, ta kontakt med oss.</p>';
+		$markup .= "<ul class=\"unstyled\">";
+		$markup .= '<li><a href="http://parknordic-permit.mspace.giantleap.no/embedded-user-shop.html#/shop">Steder vi holder til</a></li>';
+		$markup .= "</ul>";
+		/*
 		$markup .= "<ul class=\"unstyled\">";
 		foreach ($this->Cities() as $city) {
 			$markup .= "<li><a href=\"/hvor-er-vi/".$city->Slug."/\">Steder vi holder til i ".ucfirst($city->Name)."</a></li>";
 		}
 		$markup .= "</ul>";
+		*/
 		echo $markup;
 	}
 
@@ -260,6 +267,19 @@ class ParkNordic
 		return $this->db->fetch_all("	SELECT d.* FROM `Document` d
 										INNER JOIN `Kredinor` k ON k.`KredinorID` = d.`KredinorID`
 										WHERE k.`Slug` = :Slug AND d.`Removed` = 0", array(":Slug" => $slug));
+	}
+
+	public function SearchForHTML($text)
+	{
+		$text = preg_replace('/<([a][A-Z0-9]*)[^>]*([\"].*[\"]+)(.*?)<\/\1>/iu','<a href=$2 target="_blank" rel="nofollow"$3</a>',$text);
+
+		// Skriv om http-adresser
+		$text = preg_replace('/(?<!=[\'"])(\bhttps?:\/\/[^<>\s]+[^.,)<>\s])/iu','<a href="$0" rel="nofollow" target="_blank">$0</a>',$text);
+
+		// Skriv om www-adresser
+		$text = preg_replace('/(?<!:\/\/)(\bwww\.[^<>\\s]+[^.,)<>\s])/iu','<a href="http://$0" rel="nofollow" target="_blank">$0</a>',$text);
+
+		return $text;
 	}
 }
 

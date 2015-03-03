@@ -24,7 +24,7 @@
             <small><?php echo $news->Date_Added; ?></small>
           </h3>
           <p>
-            <?php echo $news->News; ?>
+            <?php echo $PN->SearchForHTML($news->News); ?>
           </p>
           
          </li>
