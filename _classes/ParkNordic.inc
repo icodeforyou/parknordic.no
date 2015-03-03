@@ -222,7 +222,7 @@ class ParkNordic
 
 		$this->db->setLimit(100);
 
-		$markup = '<p>Her finner du oversikten over hvilke steder du kan parkere hos Park Nordic AS. Vi har både plasser for korttidsparkering og områder der man leie plasser for lengre perioder.</p>';
+		$markup = '<p>Her kan du bestille, betale, endre kjøretøy og avslutte leieforholdet. Du trenger ikke lenger å tenke på parkeringsbevis! Klikk deg inn via banneren over eller i toppmenyen og logg på og registrer deg, finn stedet du ønsker å leie og fyll inn ønsket informasjon. Så kan du starte å parkere.<br />Har du spørsmål, ring oss på tlf. 21 42 20 00 eller e-post til <a href="mailto:utleie@parknordic.no">utleie@parknordic.no</a></p>';
 		$markup .= "<ul class=\"unstyled\">";
 		foreach ($this->Cities() as $city) {
 			$markup .= "<li><a href=\"/hvor-er-vi/".$city->Slug."/\">Steder vi holder til i ".ucfirst($city->Name)."</a></li>";
