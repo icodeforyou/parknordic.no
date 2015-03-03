@@ -15,8 +15,8 @@ class Nav
 	public $include = '';
 
 	public $staticMenuItems = array(
-		"Min side" => "http://parknordic-permit.mspace.giantleap.no/embedded-user-shop.html#/shop",
-		"Bestille plass" => "http://parknordic-permit.mspace.giantleap.no/user.html#/login",
+		"Bestille plass" => "http://parknordic-permit.mspace.giantleap.no/embedded-user-shop.html#/shop",
+		"Min side" => "http://parknordic-permit.mspace.giantleap.no/user.html#/login",
 		"Agent" => "http://parknordic-permit.mspace.giantleap.no/agent.html#/login",
 		//"Shop" => "http://parknordic-permit.mspace.giantleap.no/embedded-user-shop.html#/shop"
 	);
