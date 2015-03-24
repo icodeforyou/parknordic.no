@@ -15,6 +15,8 @@
         <area shape="rect" coords="17,113,149,132" href="https://parknordic-permit.giantleap.no/embedded-user-shop.html#/shop/pre-selected-product/eef13fab-02cb-40cc-975f-b4838d7e94c0" alt="Dr. Hansteinsgt. 20">
         <area shape="rect" coords="363,112,497,127" href="https://parknordic-permit.giantleap.no/embedded-user-shop.html#/shop/pre-selected-product/0a000f01-dbb5-413c-be6d-8da4203ddc9d" alt="Tollbugt.  26">
       </map>
+      <a href="https://parknordic-permit.giantleap.no/embedded-user-shop.html#/shop/pre-selected-product/0e4a7cf8-5bb3-4b12-af3a-bda010c8663c
+      "><img src="/img/banner_nett_bygganlegg.jpg" alt="" style="margin-top:10px"></a>
       <p class="home-p-text">
         Her kan du bestille, betale, endre kjøretøy og avslutte leieforholdet. Du trenger ikke lenger å tenke på parkeringsbevis! Klikk deg inn via banneren over eller i toppmenyen og logg på og registrer deg, finn stedet du ønsker å leie og fyll inn ønsket informasjon. Så kan du starte å parkere.
       </p>
@@ -25,5 +27,8 @@
   </div>
   <div id="lots" class="span4">
     <?php $PN->getCities(); ?>
+    <p>
+      <a href="/assets/Produktark_ParkNordic_A4.pdf">Last ned produktark her</a>
+    </p>
   </div>
 </div>
