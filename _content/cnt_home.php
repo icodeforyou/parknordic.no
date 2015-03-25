@@ -28,7 +28,7 @@
   <div id="lots" class="span4">
     <?php $PN->getCities(); ?>
     <p>
-      <a href="/assets/Produktark_ParkNordic_A4.pdf">Last ned produktark her</a>
+      <a href="/assets/Produktark_ParkNordic_A4.pdf">FORENKLET OG EFFEKTIV PARKERINGSADMINISTRASJON!</a>
     </p>
   </div>
 </div>
