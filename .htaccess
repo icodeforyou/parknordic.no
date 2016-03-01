@@ -1,0 +1,17 @@
+Options +FollowSymLinks
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule [^/]$ %{REQUEST_URI}/ [R=301,L]
+
+AddType application/octet-stream .doc .txt .csv .xls .tif .tiff .eps
+
+RewriteRule ^(.*)\.html$ $1.php [NC]
+RewriteRule ^(.*)/$ /index.php?nav=$1 [QSA,NC,L]
+
+<Files ~ "\.inc$">
+Order allow,deny
+Deny from all
+</Files>

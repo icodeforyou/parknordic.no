@@ -15,9 +15,9 @@ class Nav
 	public $include = '';
 
 	public $staticMenuItems = array(
-		"Bestille plass" => "http://parknordic-permit.mspace.giantleap.no/embedded-user-shop.html#/shop",
-		"Min side" => "http://parknordic-permit.mspace.giantleap.no/user.html#/login",
-		"Agent" => "http://parknordic-permit.mspace.giantleap.no/agent.html#/login",
+		"Bestille plass" => array("url" => "http://parknordic-permit.mspace.giantleap.no/embedded-user-shop.html#/shop", "sortorder" => 7),
+		"Min side" => array("url" => "http://parknordic-permit.mspace.giantleap.no/user.html#/login", "sortorder" => 8),
+		"Agent" => array("url" => "http://parknordic-permit.mspace.giantleap.no/agent.html#/login", "sortorder" => 9)
 		//"Shop" => "http://parknordic-permit.mspace.giantleap.no/embedded-user-shop.html#/shop"
 	);
 
@@ -276,6 +276,14 @@ class Nav
 				$this->pages[$m[1]]["active"] = $active;
 				$this->pages[$m[1]]["sortorder"] = $sortorder;
 			}
+        }
+
+		if(isset($this->staticMenuItems) && count($this->staticMenuItems)>0) {
+			foreach ($this->staticMenuItems as $smenu_label => $smenu_item) {
+                $this->pages[$smenu_item["url"]]["label"] = $smenu_label;
+                $this->pages[$smenu_item["url"]]["active"] = false;
+                $this->pages[$smenu_item["url"]]["sortorder"] = $smenu_item["sortorder"];
+			}
 		}
 
 	}
@@ -296,7 +304,9 @@ class Nav
 			$classes = array();
 			if($page["active"] === true) {
 				$classes[] = "active";
-			}
+            }
+
+            $prefix = "/";
 
 			if(isset($page["submenu"]) 
 				&& count($page['submenu'])>0
@@ -324,8 +334,11 @@ class Nav
 			}
 
 			$this->menu .= "<li class=\"".(count($classes)>0 ? implode(" ", $classes) : '')."\">";
-
-			$this->menu .= "<a ".( strlen($submenu)>0 ? "class=\"dropdown-toggle\" data-toggle=\"dropdown\"" : "" )." href=\"/{$url}/\">";
+            
+            if (substr($url, 0, 4) === "http") {
+                $prefix = '';
+            } 
+			$this->menu .= "<a ".( strlen($submenu)>0 ? "class=\"dropdown-toggle\" data-toggle=\"dropdown\"" : "" )." href=\"". $prefix.$url ."/\">";
 
 			//$this->menu .= isset($page['spanicon']) && strlen($page['spanicon'])>0 ? "<span class=\"icon16 ".$page['spanicon']."\"></span>" : "";
 			// Add page name to a href
@@ -338,13 +351,13 @@ class Nav
 			$this->menu .= "</li>";
 		}
 
-		if(isset($this->staticMenuItems) && count($this->staticMenuItems)>0) {
+/*		if(isset($this->staticMenuItems) && count($this->staticMenuItems)>0) {
 			foreach ($this->staticMenuItems as $smenu_label => $smenu_url) {
 				$this->menu .= "<li>";
 				$this->menu .= "<a href=\"{$smenu_url}\">{$smenu_label}</a>";
 				$this->menu .= "</li>";
 			}
-		}
+        }*/
 		$this->menu .= "\n</ul>";
 
 		echo $this->menu;

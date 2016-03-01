@@ -1,6 +1,6 @@
 <!-- 6 -->
 <div class="row">
-  <div class="span8">
+  <div class="span12">
   	
     <?php if($nav->getArgs(0) !== false && $nav->getArgs(1) !== false && $nav->getArgs(2) !== false) { ?>
     	<?php $news = $PN->loadNews($nav->getArgs(0), $nav->getArgs(1), $nav->getArgs(2)); ?>
@@ -32,8 +32,5 @@
       <?php } ?>
       </ul>
     <?php } ?>
-  </div>
-  <div id="lots" class="span4">
-    <?php $PN->getCities(); ?>
   </div>
 </div>

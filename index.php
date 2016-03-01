@@ -139,19 +139,15 @@ $news = $PN->getNews();
                 <img src="/img/<?php echo $PN->Banner($nav->getInclude()); ?>" alt="">
               </div>
               <div class="span4">
-                <div id="right-top-frame">
-                  <h4><a href="/nyheter/">Siste nytt</a></h4>
-                  <p style="padding: 5px 0; color: #111111">
-                    <?php if($news !== false) { ?>
-                      <?php echo $PN->substrwords($news[0]->News,190, "… <a href=\"/nyheter/".strftime("%Y/%m",strtotime($news[0]->Date_Added)) ."/" .$news[0]->Slug ."/\">Les mer</a>"); ?>
-                    <?php } ?>
-                  </p>
-                </div>
                 <div id="right-bottom-frame">
                     <h4><a href="/kontrollavgift/">Kontrollavgift?</a></h4>
                     <p style="padding: 5px 0; color: #fff">
                       Kontrollavgift? Har du mottatt kontrollavgift.<br><a href="/kontrollavgift/">Les her</a> om hvordan ta kontakt.
                     </p>
+                </div>
+                <div id="right-top-frame">
+                    <h4>Oppdragsgiver</h4>
+                    <a href="/oppdragsgiver">Klikk her</a>
                 </div>
               </div>
             
